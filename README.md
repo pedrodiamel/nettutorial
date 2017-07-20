@@ -10,3 +10,4 @@ https://github.com/pedrodiamel/nettutorial/blob/master/ibackprop.ipynb
 - $ cd nettutorial
 - $ jupyter notebook
 - open your host browser and paste address given by jupyter
+- click on ibackprop.ipynb
