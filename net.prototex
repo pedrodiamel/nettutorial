@@ -1,0 +1,40 @@
+
+
+
+
+layer {
+  
+  name: "conv01"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv01"
+
+  convolution_param { 
+    num_output: 20  
+    kernel_size: 11     
+    stride: 1
+    pad: 5    
+    weight_filler { type: "gaussian" std: 0.01  }
+    bias_filler {  type: "constant"  value: 0   }
+  }
+
+}
+
+
+layer {
+  
+  name: "conv02"
+  type: "Convolution"
+  bottom: "conv1"
+  top: "conv02"
+
+  convolution_param { 
+    num_output: 1  
+    kernel_size: 11     
+    stride: 1
+    pad: 5    
+    weight_filler { type: "gaussian" std: 0.01  }
+    bias_filler {  type: "constant"  value: 0   }
+  }
+
+}

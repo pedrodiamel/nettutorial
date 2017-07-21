@@ -92,30 +92,3 @@ def gradCostFunc(x, y, w1, w2):
     return E, dEdW1, dEdW2
 
 
-# data
-x = np.matrix([[1,2,3]]).T;
-y = np.matrix([5.0]);
-
-# init weigth
-w1 = np.matrix([[0.1, 0.2, 0.3],[0.1, 0.2, 0.3]])
-w2 = np.matrix([0.8, 0.2])
-
-
-y_ = costFunc( x, w1, w2);
-e = loss().forward({'x':y_,'y':y});
-print(e)
-
-# derivate
-# grad J(x)
-E, dEdW1, dEdW2 = gradCostFunc(x, y, w1, w2);
-
-
-# minimization with gradien decent
-# w^t = w^(t-1) + lr*gardJ
-
-print(E)
-print(dEdW1)
-print(dEdW2)
-
-
-print('ok!!!!')
