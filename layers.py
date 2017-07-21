@@ -18,7 +18,7 @@ class inner(layer):
     def forward(self, param): 
         return np.dot(param['w'],param['x']);
 
-    def backward(self, param):
+    def backward(self, param):        
         return np.dot(param['w'].T, param['dzdx']), np.dot(param['dzdx'],param['x'].T); 
 
 # Sigmoid layer
@@ -30,14 +30,14 @@ class sigm(layer):
     def backward(self, param):
         return self._sigm(param['x'])*(1-self._sigm(param['x']))*param['dzdx']; 
 
-    def _sigm(self, x): return 1/(1 + np.exp(-x));
+    def _sigm(self, x): return 1.0/(1 + np.exp(-x));
 
 
 # Loss layer
 class loss(layer):
     
     def forward(self, param): 
-        return  (1/(2*len(param['y']))*np.sum((param['y']-param['x'])**2));
+        return  (1.0/(2.0*len(param['y']))*np.sum((param['y']-param['x'])**2));
 
     def backward(self, param):
         return (param['x']-param['y'])*param['dzdx']; 
