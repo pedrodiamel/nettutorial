@@ -1,14 +1,11 @@
 name: "feactnet"
 layer {
   name: "data"
-  type: "Python"
+  type: "Input"
   top: "data"
-  top: "label"
-  python_param {
-    module: "caffelayerpython"
-    layer: "pydatagenerate"
-  }
+  input_param { shape: { dim: 1 dim: 1 dim: 256 dim: 256 } }
 }
+
 layer {
   name: "conv1"
   type: "Convolution"
@@ -41,14 +38,4 @@ layer {
     pad: 1
   }
 }
-layer {
-  name: "loss"
-  type: "Python"
-  bottom: "pool1"
-  bottom: "label"
-  top: "loss"
-  python_param {
-    module: "caffelayerpython"
-    layer: "pyimgloss"
-  }
-}
+

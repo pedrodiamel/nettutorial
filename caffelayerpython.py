@@ -35,14 +35,13 @@ class pydatagenerate(caffe.Layer):
         for itt in range(self.batch_size):
            
             # Use the batch loader to load the next image.
-            im, label = self.load_next_image()
+            im, label = self.load_next_img()
             
             #Here we could preprocess the image
             # ...
             interp = 'bilinear';
             im = scipy.misc.imresize(im, (self.im_shape, self.im_shape), interp=interp);
             label = scipy.misc.imresize(label, (self.im_shape, self.im_shape), interp=interp);
-
 
             # Add directly to the top blob
             top[0].data[itt, ...] = im
@@ -56,7 +55,7 @@ class pydatagenerate(caffe.Layer):
 
         # get label        
         label = (image < self.mu);        
-        return im, label
+        return image, label
     
     def reshape(self, bottom, top):
         """
@@ -106,6 +105,10 @@ class pyimgloss(caffe.Layer):
         pos = (np.array(y)==1);
         neg = (np.array(y)!=1);
 
+        #   E(1,t) = ...
+        # mean(max(0, 1 - res.x3(pos))) + ...
+        # mean(max(0, res.x3(neg))) ;
+
         E = np.mean( self._amax(1-x[pos]) ) + np.mean( self._amax(x[neg]) );
         top[0].data[...] = E;
 
@@ -124,8 +127,8 @@ class pyimgloss(caffe.Layer):
         neg = (np.array(y)!=1);
 
         dzdx = -( x<1 and pos) / np.sum(pos) + ( x>1 and nos) / np.sum(nos);  
-        bottom[0].diff[...] =  dzdx;
+        bottom[0].diff[...] = dzdx;
         bottom[1].diff[...] = -dzdx;
 
 
-    def _amax(x): return x*(x>0);
+    def _amax(self, x): return x*(x>0) if x.tolist() else 0.0;
