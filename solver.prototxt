@@ -1,0 +1,13 @@
+power : 0.75
+max_iter : 100
+stepsize : 10
+base_lr : 0.01
+weight_decay : 0.0005
+lr_policy : "inv"
+snapshot_prefix : "./snapshot"
+snapshot : 1
+gamma : 0.0001
+solver_mode : CPU
+net : "train.prototxt"
+display : 10
+momentum : 0.95

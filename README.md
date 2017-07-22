@@ -16,3 +16,7 @@ https://github.com/pedrodiamel/nettutorial/blob/master/ibackprop.ipynb
 
 - backpropagation 
 - linal regression
+
+## Links 
+
+- http://davidstutz.de/pycaffe-tools-examples-and-resources/

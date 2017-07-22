@@ -1,0 +1,53 @@
+layer {
+  name: "data"
+  type: "Python"
+  top: "data"
+  top: "label"
+  python_param {
+    module: "caffelayerpython"
+    layer: "pydatagenerate"
+  }
+}
+layer {
+  name: "conv1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1"
+  convolution_param {
+    num_output: 1
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "gaussian"
+      std: 0.00999999977648
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "pool1"
+  type: "Pooling"
+  bottom: "conv1"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "loss"
+  type: "Python"
+  bottom: "pool1"
+  bottom: "label"
+  top: "loss"
+  python_param {
+    module: "caffelayerpython"
+    layer: "pyimgloss"
+  }
+}
