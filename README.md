@@ -1,6 +1,5 @@
 # nettutorial
 Deep learning tutorial
-https://github.com/pedrodiamel/nettutorial/blob/master/ibackprop.ipynb
 
 ## Install 
 
@@ -9,13 +8,13 @@ https://github.com/pedrodiamel/nettutorial/blob/master/ibackprop.ipynb
 - $ git clone https://github.com/pedrodiamel/nettutorial.git nettutorial
 - $ cd nettutorial
 - $ jupyter notebook
-- open your host browser and paste address given by jupyter
-- click on ibackprop.ipynb
+
 
 ## Tutorials
 
-- backpropagation 
-- linal regression
+- backpropagation (ibackprop.ipynb)
+- linal regression (ilinear_regression.ipynb)
+- caffe layer customizer (icaffelayer.ipynb)
 
 ## Links 
 
