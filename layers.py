@@ -43,8 +43,6 @@ class loss(layer):
         return (param['x']-param['y'])*param['dzdx']; 
 
 
-
-
 # Const function
 def costFunc( x, w1, w2):
     '''
