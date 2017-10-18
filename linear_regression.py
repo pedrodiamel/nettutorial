@@ -109,7 +109,4 @@ print('For population = 70,000, we predict a profit of {}'.format(predict2*10000
 #plotLoss(j)
 #plt.show()
 
-
-
-
 print('ok!!!!')
