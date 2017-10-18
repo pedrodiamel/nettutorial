@@ -132,3 +132,4 @@ class pyimgloss(caffe.Layer):
 
 
     def _amax(self, x): return x*(x>0) if x.tolist() else 0.0;
+
