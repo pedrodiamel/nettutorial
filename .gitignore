@@ -2,6 +2,7 @@
 #Folders
 graphs
 checkpoints
+data
 
 #VSCode
 .vscode
