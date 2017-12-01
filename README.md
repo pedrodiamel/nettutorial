@@ -3,8 +3,8 @@
 Deep learning tutorial
 - [Backpropagation](https://github.com/pedrodiamel/nettutorial/blob/master/ibackprop.ipynb)
 - [Caffe python layer](https://github.com/pedrodiamel/nettutorial/blob/master/icaffelayer.ipynb)
-
-
+- Tensorflow
+- Pytorch
 
 ## Install 
 
@@ -45,3 +45,9 @@ Deep learning tutorial
 ### Tensorflow:
 - https://github.com/chiphuyen/stanford-tensorflow-tutorials
 - https://www.youtube.com/playlist?list=PL9Hr9sNUjfsmEu1ZniY0XpHSzl5uihcXZ
+
+## Pytorch
+
+- https://github.com/ritchieng/the-incredible-pytorch
+- https://github.com/bharathgs/Awesome-pytorch-list
+
