@@ -4,6 +4,8 @@ graphs
 checkpoints
 data
 snapshot
+model
+out
 
 #VSCode
 .vscode

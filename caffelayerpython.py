@@ -25,9 +25,7 @@ class pydatagenerate(caffe.Layer):
         #Reshape top        
         top[0].reshape(self.batch_size, 1, self.im_shape, self.im_shape)
         top[1].reshape(self.batch_size, 1, self.im_shape, self.im_shape)
-        
-       
-        
+               
         
     def forward(self, bottom, top):
         
