@@ -3,6 +3,7 @@
 graphs
 checkpoints
 data
+snapshot
 
 #VSCode
 .vscode

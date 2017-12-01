@@ -10,24 +10,23 @@ class pydatagenerate(caffe.Layer):
     def setup(self, bottom, top):
         
         # Check top shape
-        #if len(top) != 1: raise Exception("Need to define tops (data)")
+        if len(top) != 2: raise Exception("Need to define tops (data, label)")
         
         #Check bottom shape
-        #if len(bottom) != 0: raise Exception("Do not define a bottom.")
+        if len(bottom) != 0: raise Exception("Do not define a bottom.")
         
         #Read parameters
-        # params = eval(self.param_str)
-        # self.batch_size = params["batch_size"]
-        # self.im_shape = params["im_shape"]
-        self.batch_size = 10;
-        self.im_shape = 256;
+        params = eval(self.param_str)
+        self.batch_size = params["batch_size"]
+        self.im_shape = params["im_shape"]
+        self.mu = params["mu"]
 
 
         #Reshape top        
         top[0].reshape(self.batch_size, 1, self.im_shape, self.im_shape)
         top[1].reshape(self.batch_size, 1, self.im_shape, self.im_shape)
         
-        self.mu = 0.5;
+       
         
         
     def forward(self, bottom, top):
@@ -85,11 +84,10 @@ class pyimgloss(caffe.Layer):
         # check input dimensions match
         # if bottom[0].count != bottom[1].count: raise Exception("Inputs must have the same dimension.")
         # difference is shape of inputs
-        # self.diff = np.zeros_like(bottom[0].data, dtype=np.float32)
+        self.diff = np.zeros_like(bottom[0].data, dtype=np.float32)
         
         # loss output is scalar
         top[0].reshape(1)
-    
     
 
     def forward(self, bottom, top):
@@ -98,7 +96,7 @@ class pyimgloss(caffe.Layer):
         E = ---\sum max{0,1-x} + --- \sum max{0,x}
             |P| xEP              |N|   xEN
         '''
-        
+         
         x = bottom[0].data;
         y = bottom[1].data;
 
@@ -112,9 +110,7 @@ class pyimgloss(caffe.Layer):
         E = np.mean( self._amax(1-x[pos]) ) + np.mean( self._amax(x[neg]) );
         top[0].data[...] = E;
 
-
     def backward(self, top, propagate_down, bottom):
-        
         
         # dzdx3 = ...
         #     - single(res.x3 < 1 & pos) / sum(pos(:)) + ...
@@ -127,7 +123,8 @@ class pyimgloss(caffe.Layer):
         neg = (np.array(y)!=1);
 
         dzdx = -( x<1 and pos) / np.sum(pos) + ( x>1 and nos) / np.sum(nos);  
-        bottom[0].diff[...] = dzdx;
+
+        bottom[0].diff[...] =  dzdx;
         bottom[1].diff[...] = -dzdx;
 
 

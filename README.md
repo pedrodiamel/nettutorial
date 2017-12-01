@@ -36,6 +36,8 @@ Deep learning tutorial
 
 
 ### Caffe:
+- https://github.com/NVIDIA/caffe
+- https://github.com/NVIDIA/caffe/tree/caffe-0.16/examples
 - http://davidstutz.de/pycaffe-tools-examples-and-resources/
 - http://christopher5106.github.io/deep/learning/2015/09/04/Deep-learning-tutorial-on-Caffe-Technology.html
 - http://www.andrewjanowczyk.com/real-time-data-augmentation-using-nvidia-digits-python-layer/
