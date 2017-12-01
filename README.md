@@ -1,10 +1,10 @@
 # Nettutorial
 
 Deep learning tutorial
-- [Backpropagation](https://github.com/pedrodiamel/nettutorial/blob/master/ibackprop.ipynb)
-- [Caffe python layer](https://github.com/pedrodiamel/nettutorial/blob/master/icaffelayer.ipynb)
-- Tensorflow
-- Pytorch
+- [Basic](https://github.com/pedrodiamel/nettutorial/blob/master/ibackprop.ipynb)
+- [Caffe](https://github.com/pedrodiamel/nettutorial/blob/master/icaffelayer.ipynb)
+- [Tensorflow](https://github.com/pedrodiamel/nettutorial/blob/master/tf_linear_regression.ipynb)
+- [Pytorch](https://github.com/pedrodiamel/nettutorial/blob/master/ipytorch.ipynb)
 
 ## Install 
 
