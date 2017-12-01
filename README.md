@@ -46,7 +46,7 @@ Deep learning tutorial
 - https://github.com/chiphuyen/stanford-tensorflow-tutorials
 - https://www.youtube.com/playlist?list=PL9Hr9sNUjfsmEu1ZniY0XpHSzl5uihcXZ
 
-## Pytorch
+### Pytorch
 
 - https://github.com/ritchieng/the-incredible-pytorch
 - https://github.com/bharathgs/Awesome-pytorch-list
